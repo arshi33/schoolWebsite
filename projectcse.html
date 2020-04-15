@@ -1,0 +1,524 @@
+<!doctype html>
+<html>
+<head></head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #f2f2f2;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding: 14px 40px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 40px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color:#cccccc;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #b30000;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  background-color:#bfbfbf;
+}
+
+
+* {box-sizing: border-box}
+/*body {font-family: Verdana, sans-serif; margin:0}*/
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+<style>
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+  left:0;
+}
+
+#about {
+  top: 220px;
+  background-color: #4CAF50;
+}
+
+#blog {
+  top: 280px;
+  background-color: #2196F3;
+}
+
+#projects {
+  top: 340px;
+  background-color: #f44336;
+}
+
+#contact {
+  top: 400px;
+  background-color: #555
+}
+</style>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width:33.3%;
+  padding: 0 10px;
+}
+/* Float four columns side by side */
+.column1 {
+  float: left;
+  width:25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: right;
+  background-color: #990000;
+  font-color:white;
+}
+/* Style the counter cards */
+.card1 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: left;
+  background-color: #f1f1f1;
+}
+
+</style>
+<style>
+.footer {
+   position: auto;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #666666;
+   color: white;
+   text-align: left;
+}
+</style>
+
+<body>
+<img src="symbol_school.png" alt="symbol of school" style="width:80px;height:80px;">
+<img src="school_name.png" alt="school name" style="width:220px;height:100px;">
+<a href="https://www.instagram.com/">
+<img src="insta_ss.png" alt="insta account" align="right" style="width:80px;height:60px;">
+</a>
+<div class="navbar" >
+  <a href="#home">Home</a>
+  <a href="CBSEOASIS.html">CBSEOASIS</a>
+  <div class="dropdown">
+    <button class="dropbtn">About Us
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="about_school.html">About school</a>
+      <a href="school_motto.html">school motto</a>
+      <a href="chairman.html">Chairman's message</a>
+      <a href="mission.html">Missions statement</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">Free-Will School campus
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="seniorWing.html">Senior Wing</a>
+      <a href="middleWing.html">Middle Wing</a>
+      <a href="juniorWing.html">Junior Wing</a>
+      <a href="pre_primaryWing.html">Pre Primary Wing</a>
+      <a href="sanitation.html">Sanitation & Infirmary</a>
+      <a href="security.html">security & CCTV surveillance</a>
+      <a href="otherFacilites.html">Other Facilities</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">Academics     
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="aacdemicRewards.html">Academics Awards</a>
+      <a href="teachingMethodologhy.html">Teaching Methodology</a>
+      <a href="scheduleOFculture.html">Schedule of Cultural Activities</a>
+      <a href="SPORT.html">Schedule Of Sports</a>
+      <a href="EXAMschedule.html">examination schedule</a>
+      
+    </div>
+  </div>
+    <div class="dropdown">
+    <button class="dropbtn">Admissions
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="addmissionsRule.html">Admission Rules</a>
+      <a href="feeStructure.html">Fee Structure</a>
+    </div>
+  </div>
+   <div class="dropdown">
+    <button class="dropbtn">Parent Zone 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="guidelines.html">Guidelines For Parents</a>
+      <a href="ptm.html">Schedule of PTM</a>
+      <a href="tc.html">TC Rule</a>
+      <a href="transport.html">Transport Rules</a>
+    </div>
+  </div>
+   <div class="dropdown">
+    <button class="dropbtn">Students
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="sguidelines.html">Guidelines For Students</a>
+      <a href="uniform.html">School Uniform</a>
+      <a href="attendance.html">Attendance Rules</a>
+    </div>
+  </div>
+   <div class="dropdown">
+    <button class="dropbtn">Contact Us
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="contactDetail.html">contact Details</a>
+      <a href="location.html">Location Map</a>
+    </div>
+  </div>
+</div>
+</body>
+<body>
+<div style="background-image:url('back5.png');height=300px";>
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="slide1.png" style="width:100%;height:350px">
+  <div class="text">School Front</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 5</div>
+  <img src="slide2.png" style="width:100%;height:350px">
+  <div class="text">Campus</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 5</div>
+  <img src="slide3.png" style="width:100%;height:350px">
+  <div class="text">Study Rooms</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 5</div>
+  <img src="slide4.png" style="width:100%;height:350px">
+  <div class="text">Library</div>
+</div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+</div>
+
+<div style="text-align:center;background-color: white;">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="#" id="about">About</a>
+  <a href="#" id="blog">Blog</a>
+  <a href="#" id="projects">Projects</a>
+  <a href="#" id="contact">Contact</a>
+</div>
+</body>
+<body>
+<div class="row">
+  <div class="column">
+    <div class="card1">
+      <h3>Activities/Achievements</h3>
+      <p ><a href="#" id="competition">Inter House Quiz Competition at Senior wing</a></p>
+      <p><a href="#" id="tournament">Inter Section Cricket tournament for class IV</a></p>
+      <p><a href="#" id="football jezz">Inter DPS Football jezz! under 19</a></p>
+      <p><a href="#" id="NTSE">NTSE stage -1</a></p>
+      <p><a href="#" id="Akaash counciling">Akaash counseling</a></p>
+      <p><a href="#" id="">Assembly on Communal Harmony Week - Day-1 By class 6J</a></p>
+      <p><a href="#"id="">Inter Section Basketball Tournament Class III (Girls)</a></p>
+      <p><a href="#" id="">Shrimad Bhagwat Geeta Gyan Pariksha at Middle Wing </a></p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card1">
+      <h3>From Principal's Pen</h3>
+      <p><font color="60 60 60"><i>Dear Reader,<br>
+“With determination for a mission of Excellence and well prepared with the supreme art to inspire hope, ignite the imagination, and instill joy in creative expression and knowledge, We, at DPS Ranipur extend you a warm welcome to the new session 2020-21”.
+For this new session, we have set higher standards and expectations for each and every student of the school keeping in mind our core beliefs i.e. our vision and mission which is to develop physical abilities, values, punctuality and discipline of a soldier , Scientific aptitude at the core and well equipping our students with technological advancements and its ethical usage. We wish to see them master at least one game to the national or state level and equally capable in creative and literary activities.</font></i></p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card1">
+      <h3>News</h3>
+      <p><a href="#" id="news1">Result of Math wizz Contest </a></p>
+      <p><a href="#" id"">Admission portal will be open on 24 june</a></p>
+      <p><a href="#" id"">Akaash couching classes on 4th may</a></p>
+      <p><a href="#" id"">Fee deposit date extended for further notice</a></p>
+      <p><a href="#" id"">Sport wear criteria allotted for junior wing. </a></p>
+      <p><a href="#" id"">Book list - class I to XII</a></p>
+      <p><a href="#" id"">School remain closed on 24june</a></p>
+      <p><a href="#" id"">Computer facilities purchase tender executed</a></p>
+    </div>
+  </div>
+
+</div>
+</body>
+<body>
+<br>
+<br>
+<div class="row">
+  <div class="column1">
+    <div class="card"style="background-image:url('gallery.png'); background-repeat: no-repeat;"><a href="gallery2.html" id="gallery">
+      <h2><br><br>Gallery<br><br><br></h2></a>
+    </div>
+  </div>
+
+  <div class="column1">
+    <div class="card"style="background-image:url('webzine.png'); background-repeat: no-repeat;"><a href="webzine1.html" id="webzine">
+      <h2><br><br>Webzine<br><br><br></h2></a>
+    </div>
+  </div>
+  
+  <div class="column1">
+    <div class="card"style="background-image:url('news.png'); background-repeat: no-repeat;"><a href="https://www.facebook.com/" id="gallery">
+      <h2><br><br>In Media<br><br><br></h2></a>
+    </div>
+  </div>
+  
+  <div class="column1">
+    <div class="card"style="background-image:url('c3.png'); background-repeat: no-repeat;"><a href="creative.html" id="creativity;">
+      <h2><br><br>Creativity<br><br><br></h2></a>
+    </div>
+  </div>
+</div>
+</body>
+<body>
+<br>
+<div class="footer">
+<br><br>
+  <p><address><br>© 2018 Free Will School, R.k Puram, Nodia,Delhi. All rights reserved.<br>
+Sector - III, BHEL Township Haridwar - 249403, Uttarakhand.<br>
+School Phone No. 01334-231364, 01334-284505, 4505 | School Fax No. 01334-231364<br></address></p>
+<br>
+</div>
+</body>
+</html>
+
